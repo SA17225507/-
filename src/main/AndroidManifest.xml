@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="es.source.code.activity">
+
+    <permission
+        android:name="scos.permission.ACCESSSCOS"
+        android:protectionLevel="dangerous" />
+
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/icon_logo"
+        android:label="SCOS"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!--首页-->
+        <activity android:name=".SCOSEntry">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+       <!--导航页面-->
+        <activity
+            android:name=".MainScreen"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:permission="scos.permission.ACCESSSCOS">
+            <intent-filter>
+                <action android:name="scos.intent.action.SCOSMAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="scos.intent.category.SCOSLAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--登录注册-->
+        <activity android:name=".LoginOrRegister"
+            android:label="SCOS"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--点菜-->
+        <activity android:name=".FoodView"
+            android:label="SCOS"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--订单-->
+        <activity android:name=".FoodOrderView"
+            android:label="SCOS"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--订单详情-->
+        <activity android:name=".FoodDetailed"
+            android:label="SCOS"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--系统帮助-->
+        <activity android:name=".SCOSHelper"
+            android:label="SCOS"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="es.source.code.service.ServerObserverService"
+            android:process="es.source.code.observerservice"/>
+
+        <service
+            android:name="es.source.code.service.UpdateService"
+            android:exported="false"/>
+
+        <receiver android:name="es.source.code.br.DeviceStartedListener">  
+            <intent-filter>  
+                <action android:name="android.intent.action.BOOT_COMPLETED" /> 
+                <category android:name="android.intent.category.LAUNCHER" />  
+                <intent-filter>
+                    <action android:name="notification_cancelled"/>
+                    <action android:name="notification_clicked"/>
+                </intent-filter>
+            </intent-filter>
+        </receiver>  
+    </application>
+
+</manifest>

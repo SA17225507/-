@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:androimd="http://schemas.android.com/apk/res-auto"
+    tools:context="es.source.code.activity.NoOrderFragment">
+    <ListView
+        android:id="@+id/lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </ListView>
+
+    <RelativeLayout android:id="@+id/LinearLayout"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView android:id="@+id/Text1"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:background="#696969"
+            android:text="菜品总数:"
+            android:textColor="#FFFFFF">
+        </TextView>
+        <TextView android:id="@+id/Text2"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_above="@+id/Text1"
+            android:background="#696969"
+            android:text="订单总价:"
+            android:textColor="#FFFFFF">
+        </TextView>
+
+
+
+        <TextView android:id="@+id/Text3"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_toRightOf="@+id/Text1"
+            android:layout_alignTop="@+id/Text1"
+            android:background="#696969"
+            android:textColor="#FFFFFF">
+        </TextView>
+        <TextView android:id="@+id/Text4"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Text3"
+            android:layout_toRightOf="@+id/Text2"
+            android:layout_alignTop="@+id/Text2"
+            android:background="#696969"
+            android:layout_alignParentBottom="true"
+            android:textColor="#FFFFFF">
+        </TextView>
+
+
+        <Button android:text="提交订单"
+            android:id="@+id/Button_SubmitOrder"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#ffa135"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/Text3">
+        </Button>
+
+    </RelativeLayout>
+
+
+</FrameLayout>
